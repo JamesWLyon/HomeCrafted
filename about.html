@@ -45,8 +45,10 @@ Made by: James Lyon
 
         <footer>
             <p>
-                &copy; <script>const year = new Date().getFullYear();</script> HomeCrafted. All rights reserved.
+                &copy; <span id="year"></span> HomeCrafted. All rights reserved.
             </p>
+
+            <script defer>document.getElementById("year").textContent=new Date().getFullYear()</script>
         </footer>
 
         <!-- Js code -->
