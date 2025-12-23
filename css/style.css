@@ -1,0 +1,220 @@
+/* Variables */
+:root {
+    --primary-color: #f3ecd7;
+    --secondary-color: #ccbd9c;
+    --text-color: #333;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+}
+
+/* Main Elements Styling */
+
+header,
+footer {
+    text-align: center;
+    padding: 1rem;
+}
+
+header a {
+    position: relative;
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: auto 1.25em;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 3rem;
+    text-align: center;
+    max-width: 80%;
+    margin: 2rem auto;
+    text-wrap: balance;
+}
+
+section p {
+    font-size: 1.5rem;
+    padding: 2rem;
+    line-height: 1.3em;
+    background-color: var(--secondary-color);
+}
+
+/* Navigation Menu Styling */
+
+.burger input {
+    display: none;
+}
+
+header nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;   
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--text-color);
+    transition: width 0.4s ease;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Masonry Layout */
+
+.masonry-container {
+    --gap: clamp(1rem, 5vmin, 2rem);
+    columns: 220px;
+    gap: var(--gap);
+    width: 86%;
+    margin: 2.125rem auto;
+    font-size: 1.35rem;
+}
+
+.masonry-container > * {
+    break-inside: avoid;
+}
+
+.masonry-container .masonry-item {
+    background-color: var(--secondary-color);
+    margin-bottom: var(--gap);
+    border-radius: .5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 0.125);
+}
+
+.masonry-container img {
+    width: 100%;
+    display: block;
+    border-radius: .5rem .5rem 0 0;
+}
+
+.masonry-container p {
+    justify-content: center;
+    align-items: center;
+    margin: 1.125rem;
+    padding: 0;
+    line-height: 1.1em;
+}
+
+@media (min-width: 40em) {
+
+    section p {
+        border-radius: .625rem;
+        width: 86%;
+        margin: auto;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 4rem;
+    }
+}
+
+@media (max-width: 40em) {
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--text-color);
+        transition: .25s ease-in-out;
+    }
+
+    nav a {
+        color: var(--primary-color);
+        font-size: 2.125rem;
+        padding: 1em;
+    }
+
+    .burger {
+        position: fixed;
+        width: 40px;
+        height: 30px;
+        background: transparent;
+        cursor: pointer;
+        display: block;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    .burger span {
+        display: block;
+        position: absolute;
+        height: .25rem;
+        width: 100%;
+        background: var(--text-color);
+        border-radius: 9px;
+        opacity: 1;
+        left: 0;
+        transform: rotate(0deg);
+        transition: .25s ease-in-out;
+    }
+
+    .burger span:nth-of-type(1) {
+        top: 0px;
+        transform-origin: left center;
+    }
+
+    .burger span:nth-of-type(2) {
+        top: 50%;
+        transform: translateY(-50%);
+        transform-origin: left center;
+    }
+
+    .burger span:nth-of-type(3) {
+        top: 100%;
+        transform-origin: left center;
+        transform: translateY(-100%);
+    }
+
+    .burger input:checked ~ span:nth-of-type(1) {
+        transform: rotate(45deg);
+        top: 0px;
+        left: 5px;
+    }
+
+    .burger input:checked ~ span:nth-of-type(2) {
+        width: 0%;
+        opacity: 0;
+    }
+
+    .burger input:checked ~ span:nth-of-type(3) {
+        transform: rotate(-45deg);
+        top: 28px;
+        left: 5px;
+    }
+
+    nav:has(#burger:checked) {
+        left: 0;
+    }
+
+    .burger:has(#burger:checked) span {
+        background: var(--primary-color);
+    }
+
+}
+
+@media (min-width: 20em) {
+
+}
