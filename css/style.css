@@ -127,6 +127,11 @@ header nav a:hover::after {
 }
 
 @media (max-width: 40em) {
+
+    header {
+        margin: 0;
+        padding: .5rem;
+    }
     
     nav {
         position: fixed;
@@ -151,12 +156,21 @@ header nav a:hover::after {
         position: fixed;
         width: 40px;
         height: 30px;
-        background: transparent;
-        cursor: pointer;
-        display: block;
         top: 1rem;
         right: 1rem;
+        cursor: pointer;
     }
+
+    .burger::before {
+        content: "";
+        position: absolute;
+        inset: -12px;
+        background: transparent;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+        z-index: -1;
+    }
+
 
     .burger span {
         display: block;
@@ -212,9 +226,12 @@ header nav a:hover::after {
     .burger:has(#burger:checked) span {
         background: var(--primary-color);
     }
+    
+    nav.scrolled .burger::before {
+        background-color: var(--text-color);
+    }
 
-}
-
-@media (min-width: 20em) {
-
+    nav.scrolled .burger span {
+        background-color: var(--primary-color);
+    }
 }
