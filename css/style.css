@@ -34,6 +34,7 @@ footer {
 header a {
     position: relative;
 
+    min-width: fit-content;
     margin: auto 1.25em;
 
     color: var(--text-color);
@@ -70,7 +71,7 @@ section p {
     font-weight: 600;
 }
 
-/* Navigation menu styling */
+/* Nav menu styling */
 
 .burger input {
     display: none;
@@ -138,6 +139,9 @@ header nav a:hover::after {
 /* Desktop aplications */
 
 @media (min-width: 40em) {
+
+    /* Main elements styling */
+
     h1 {
         font-size: 3.75rem;
     }
@@ -152,10 +156,14 @@ header nav a:hover::after {
 
 @media (max-width: 40em) {
 
+    /* Main elements styling */
+
     header {
         margin: 0;
         padding: .5rem;
     }
+
+    /* Mobile nav menu and button styling */
 
     nav {
         position: fixed;
@@ -182,11 +190,14 @@ header nav a:hover::after {
 
     .burger {
         position: fixed;
-        top: 1rem;
-        right: 1rem;
+        top: .9rem;
+        right: .7rem;
 
         width: 40px;
         height: 30px;
+
+        transform: scale(0.8);
+        transform-origin: center;
 
         cursor: pointer;
     }
@@ -195,11 +206,17 @@ header nav a:hover::after {
         content: "";
 
         position: absolute;
-        inset: -12px;
+        top: 50%;
+        left: 50%;
         z-index: -1;
+
+        width: 56px;
+        height: 56px;
 
         background: transparent;
         border-radius: 50%;
+
+        transform: translate(-50%, -50%);
         transition: background-color 0.3s ease;
     }
 
